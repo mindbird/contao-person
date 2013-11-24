@@ -1,0 +1,38 @@
+<div class="<?php echo $this->class; ?> block"<?php echo $this->cssID; ?><?php if ($this->style): ?> style="<?php echo $this->style; ?>"<?php endif; ?>>
+<?php if ($this->headline): ?> 
+	<<?php echo $this->hl; ?>><?php echo $this->headline; ?></<?php echo $this->hl; ?>>
+<?php endif; ?>
+	
+<?php foreach($this->aData as $aEntry) { ?>
+	<div class="person" itemscope itemtype="http://schema.org/Person">
+		<h2 class="name" itemprop="name"><?php print $aEntry['firstname']; ?> <?php print $aEntry['lastname']; ?></h2>
+		<?php if ($aEntry['function'] != '') { ?>
+			<p class="function" itemprop="jobTitle"><?php print $aEntry['function']; ?></p>
+		<?php } ?>
+		<?php if ($aEntry['image'] != '') { ?>
+			<figure itemprop="image">
+				{{image::<?php print $aEntry['image']; ?>?width=200&height=200&mode=center_center&alt=<?php print $aEntry['firstname']; ?> <?php print $aEntry['lastname']; ?>}}
+			</figure>
+		<?php } ?>
+		
+		<div class="address" itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+			<?php if ($aEntry['street'] != '' && $aEntry['street_number'] != '') { ?>
+				<p class="street" itemprop="streetAddress"><?php print $aEntry['street']; ?> <?php print $aEntry['street_number']; ?></p>
+			<?php } ?>
+			<?php if ($aEntry['postal_code'] != '' && $aEntry['city'] != '') { ?>
+				<p class="city">
+					<span itemprop="postalCode"><?php print $aEntry['postal_code']; ?></span>
+					<span itemprop="addressLocality"><?php print $aEntry['city']; ?></span>
+				</p>
+			<?php } ?>
+		</div>
+		
+		<?php if ($aEntry['phone'] != '') { ?>
+			<p class="phone" itemprop="telephone"><?php print $aEntry['phone']; ?></p>
+		<?php } ?>
+		<?php if ($aEntry['email'] != '') { ?>
+			<p class="email" itemprop="email"><?php print $aEntry['email']; ?></p>
+		<?php } ?>
+	</div>
+<?php } ?>
+</div>
