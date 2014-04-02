@@ -1,5 +1,5 @@
 <?php
-use Contao\Backend;
+
 /**
  * Contao Open Source CMS
  *
@@ -225,7 +225,7 @@ $GLOBALS ['TL_DCA'] ['tl_person'] = array (
 		) 
 );
 
-class tl_person extends Backend {
+class tl_person extends \Backend {
 	public function listPerson($row) {
 		if ($row['image'] != NULL) {
 			$objFile = \FilesModel::findByPk(deserialize($row['image']));
