@@ -3,9 +3,9 @@
 /**
  * Contao Open Source CMS
  *
- * Copyright (c) 2005-2013 Leo Feyer
+ * Copyright (c) 2005-2014 Leo Feyer
  *
- * @package Person
+ * @package Personen
  * @link    https://contao.org
  * @license http://www.gnu.org/licenses/lgpl-3.0.html LGPL
  */
@@ -25,12 +25,12 @@ ClassLoader::addNamespaces(array
  */
 ClassLoader::addClasses(array
 (
-	// Classes
-	'Person\PersonList'        => 'system/modules/personen/classes/PersonList.php',
-
 	// Models
-	'Person\PersonModel'       => 'system/modules/personen/models/PersonModel.php',
-	'Person\PersonArchivModel' => 'system/modules/personen/models/PersonArchivModel.php',
+	'Person\PersonModel'       => 'system/modules/Personen/models/PersonModel.php',
+	'Person\PersonArchivModel' => 'system/modules/Personen/models/PersonArchivModel.php',
+
+	// Classes
+	'Person\PersonList'        => 'system/modules/Personen/classes/PersonList.php',
 ));
 
 
@@ -39,6 +39,6 @@ ClassLoader::addClasses(array
  */
 TemplateLoader::addFiles(array
 (
-	'person_list'          => 'system/modules/personen/templates',
-	'mod_personlist'       => 'system/modules/personen/templates',
+	'mod_personlist' => 'system/modules/Personen/templates',
+	'person_list'    => 'system/modules/Personen/templates',
 ));

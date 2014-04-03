@@ -17,7 +17,7 @@ $GLOBALS ['BE_MOD'] ['content'] ['person'] = array (
 		),
 		// 'callback' => 'ClassName'
 		// 'key' => array('Class', 'method'),
-		'icon' => 'system/modules/personen/assets/images/icon.png' 
+		'icon' => 'system/modules/Personen/assets/images/icon.png' 
 // 'stylesheet' => 'path/to/stylesheet.css',
 // 'javascript' => 'path/to/javascript.js'
 );
