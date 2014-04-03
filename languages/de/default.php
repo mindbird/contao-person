@@ -16,3 +16,5 @@
  * Miscellaneous
  */
 $GLOBALS['TL_LANG']['MSC'][''] = '';
+
+$GLOBALS['TL_LANG']['CTE']['person'] = array('Person', 'Bindet eine einzelne Person ein.');
