@@ -1,4 +1,4 @@
-<div class="person block" itemscope itemtype="http://schema.org/Person">
+<div class="person" itemscope itemtype="http://schema.org/Person">
 	<h2 class="name" itemprop="name"><?php print $this->firstname; ?> <?php print $this->lastname; ?></h2>
 	<?php if ($this->function) { ?>
 		<p class="function" itemprop="jobTitle"><?php print $this->function; ?></p>

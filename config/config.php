@@ -15,11 +15,7 @@ $GLOBALS ['BE_MOD'] ['content'] ['person'] = array (
 				'tl_person_archive',
 				'tl_person' 
 		),
-		// 'callback' => 'ClassName'
-		// 'key' => array('Class', 'method'),
 		'icon' => 'system/modules/Personen/assets/images/icon.png' 
-// 'stylesheet' => 'path/to/stylesheet.css',
-// 'javascript' => 'path/to/javascript.js'
 );
 /**
  * Not all of the keys mentioned above (like "tables", "key", "callback" etc.)
@@ -34,10 +30,9 @@ $GLOBALS ['BE_MOD'] ['content'] ['person'] = array (
  * Front end modules are stored in a global array called "FE_MOD". You can add
  * your own modules by adding them to the array.
  */
-array_insert($GLOBALS['FE_MOD']['people'], 1, array
-(
-'person_list' => 'PersonList'
-));
+array_insert ( $GLOBALS ['FE_MOD'] ['people'], 1, array (
+		'person_list' => 'ModulePersonList' 
+) );
 
 /**
  * The keys (like "module_1") are the module names, which are e.g.
@@ -69,6 +64,7 @@ array_insert($GLOBALS['FE_MOD']['people'], 1, array
  * element is rendered. The class "ContentClass1" has to be stored in a file
  * named "ContentClass1.php" in your module folder.
  */
+$GLOBALS['TL_CTE']['include']['person'] = 'Person\PersonContentElement';
 
 /**
  * BACK END FORM FIELDS

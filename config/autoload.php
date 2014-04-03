@@ -29,8 +29,11 @@ ClassLoader::addClasses(array
 	'Person\PersonModel'       => 'system/modules/Personen/models/PersonModel.php',
 	'Person\PersonArchivModel' => 'system/modules/Personen/models/PersonArchivModel.php',
 
-	// Classes
-	'Person\PersonList'        => 'system/modules/Personen/classes/PersonList.php',
+	// Modules
+	'Person\ModulePersonList'        => 'system/modules/Personen/modules/ModulePersonList.php',
+	
+	// Elements
+	'Person\PersonContentElement' => 'system/modules/Personen/elments/PersonContentElement.php',
 ));
 
 
@@ -39,6 +42,7 @@ ClassLoader::addClasses(array
  */
 TemplateLoader::addFiles(array
 (
+	'ce_person' => 'system/modules/Personen/templates',
 	'mod_personlist' => 'system/modules/Personen/templates',
 	'person_list'    => 'system/modules/Personen/templates',
 ));
