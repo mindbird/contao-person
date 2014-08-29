@@ -24,4 +24,6 @@ $GLOBALS['TL_LANG']['MOD']['person'] = array('Personen', 'Personen anzeigen');
 $GLOBALS['TL_LANG']['FMD']['people'] = array('Personen', '');
 $GLOBALS['TL_LANG']['FMD']['person_list'] = array('Personenliste', '');
 
+$GLOBALS['TL_LANG']['tl_module']['personTpl'] = array('Personentemplate', '');
 $GLOBALS['TL_LANG']['tl_module']['person_archiv'] = array('Archiv', 'Welches Archiv soll dargestellt werden?');
+$GLOBALS['TL_LANG']['tl_module']['archiv_legend'] = 'Person';

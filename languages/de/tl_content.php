@@ -15,6 +15,7 @@
  * Fields
  */
 $GLOBALS['TL_LANG']['tl_content']['personID'] = array('Person', 'Bitte wählen Sie eine Person aus der Liste aus.');
+$GLOBALS['TL_LANG']['tl_content']['personTpl'] = array('Personentemplate', '');
 
 
 /**

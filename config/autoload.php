@@ -33,7 +33,7 @@ ClassLoader::addClasses(array
 	'Person\ModulePersonList'        => 'system/modules/Personen/modules/ModulePersonList.php',
 	
 	// Elements
-	'Person\PersonContentElement' => 'system/modules/Personen/elments/PersonContentElement.php',
+	'Person\PersonContentElement' => 'system/modules/Personen/elements/PersonContentElement.php',
 ));
 
 

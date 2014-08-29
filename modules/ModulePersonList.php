@@ -33,40 +33,74 @@ class ModulePersonList extends \Module {
 	protected $strTemplate = 'mod_personlist';
 	
 	/**
-	 * Generate the module
+	 * Template person entry
+	 *
+	 * @var string
 	 */
-	protected function compile() {
-		$objPeople = \PersonModel::findBy('pid', $this->person_archiv);
-		$this->Template->strPeople = $this->getPeople ( $objPeople );
+	protected $strTemplatePerson = 'person_list';
+	
+	/**
+	 * (non-PHPdoc)
+	 *
+	 * @see \Contao\Module::generate()
+	 */
+	public function generate() {
+		if (TL_MODE == 'BE') {
+			$objTemplate = new \BackendTemplate ( 'be_wildcard' );
+			
+			$objTemplate->wildcard = '### PERSONEN LISTE ###';
+			$objTemplate->title = $this->headline;
+			$objTemplate->id = $this->id;
+			$objTemplate->link = $this->name;
+			$objTemplate->href = 'contao/main.php?do=themes&amp;table=tl_module&amp;act=edit&amp;id=' . $this->id;
+			
+			return $objTemplate->parse ();
+		}
+		
+		if ($this->personTpl) {
+			$this->strTemplatePerson = $this->personTpl;
+		}
+		
+		return parent::generate ();
 	}
 	
 	/**
-	 * Return string/html of all people
-	 * 
-	 * @param array $arrPeople DB query rows as array
-	 * @return string
+	 * Generate the module
 	 */
-	protected function getPeople($objPeople) {
-		while ($objPeople->next()) {
-			$objTemplate = new \FrontendTemplate ( 'person_list' );
-			$objFile = \FilesModel::findByPk ( $objPeople->image );
-			$arrSize = deserialize($this->imgSize);			
-			
-			$objTemplate->firstname = $objPeople->firstname;
-			$objTemplate->lastname = $objPeople->lastname;
-			$objTemplate->function = $objPeople->function;
-			$objTemplate->street = $objPeople->street;
-			$objTemplate->street_number = $objPeople->street_number;
-			$objTemplate->postal_code = $objPeople->postal_code;
-			$objTemplate->city = $objPeople->city;
-			$objTemplate->phone = $objPeople->phone;
-			$objTemplate->email = $objPeople->email;
-			$objTemplate->image = \Image::get($objFile->path, $arrSize[0], $arrSize[1], $arrSize[2]);
-			$objTemplate->imageSize = 'width="' . $arrSize[0] . '" height="' . $arrSize[1] . '"';
-			
-			$strHTML .= $objTemplate->parse ();
+	protected function compile() {
+		$objPeople = \PersonModel::findBy ( 'pid', $this->person_archiv );
+		$arrSize = deserialize ( $this->imgSize );
+		if ($objPeople) {
+			$strHTML = '';
+			while ( $objPeople->next () ) {
+				$objTemplate = new \FrontendTemplate ( $this->personTpl );
+				$arrData = $this->getArrayOfPerson ( $objPeople, $arrSize [0], $arrSize [1], $arrSize [2] );
+				foreach ( $arrData as $strName => $strValue ) {
+					$objTemplate->$strName = $strValue;
+				}
+				$strHTML .= $objTemplate->parse ();
+			}
 		}
 		
-		return $strHTML;
+		$this->Template->strPeople = $strHTML;
+	}
+	
+	/**
+	 * Return array of person
+	 *
+	 * @param object $objPerson        	
+	 * @param number $intWidth        	
+	 * @param number $intHeigth        	
+	 * @param string $strPostion        	
+	 * @return array
+	 */
+	protected function getArrayOfPerson($objPerson, $intWidth = 0, $intHeight = 0, $strPostion = 'proportional') {
+		$arrData = $objPerson->row ();
+		$objFile = \FilesModel::findByPk ( $objPerson->image );
+		$arrData ['image'] = \Image::get ( $objFile->path, $intWidth, $intHeight, $strPostion );
+		
+		$arrData ['imageSize'] = 'width="' . $intWidth . '" height="' . $intHeight . '"';
+		
+		return $arrData;
 	}
 }
