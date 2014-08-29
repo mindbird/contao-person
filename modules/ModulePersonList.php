@@ -68,7 +68,7 @@ class ModulePersonList extends \Module {
 	 * Generate the module
 	 */
 	protected function compile() {
-		$objPeople = \PersonModel::findBy ( 'pid', $this->person_archiv );
+		$objPeople = \PersonModel::findBy ( 'pid', $this->person_archiv, array('order' => 'sorting ASC') );
 		$arrSize = deserialize ( $this->imgSize );
 		if ($objPeople) {
 			$strHTML = '';
