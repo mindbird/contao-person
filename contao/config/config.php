@@ -15,7 +15,7 @@ $GLOBALS ['BE_MOD'] ['content'] ['person'] = array(
  * FRONT END MODULES
  */
 array_insert($GLOBALS ['FE_MOD'] ['people'], 1, array(
-    'person_list' => 'ModulePersonList'
+    'person_list' => 'Person\ModulePersonList'
 ));
 
 
@@ -23,5 +23,3 @@ array_insert($GLOBALS ['FE_MOD'] ['people'], 1, array(
  * CONTENT ELEMENTS
  */
 $GLOBALS['TL_CTE']['includes']['person'] = 'Person\PersonContentElement';
-
-?>

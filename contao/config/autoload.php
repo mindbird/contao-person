@@ -1,26 +1,6 @@
 <?php
 
 /**
- * Contao Open Source CMS
- *
- * Copyright (c) 2005-2014 Leo Feyer
- *
- * @package Personen
- * @link    https://contao.org
- * @license http://www.gnu.org/licenses/lgpl-3.0.html LGPL
- */
-
-
-/**
- * Register the namespaces
- */
-ClassLoader::addNamespaces(array
-(
-    'Person',
-));
-
-
-/**
  * Register the classes
  */
 ClassLoader::addClasses(array
@@ -29,7 +9,6 @@ ClassLoader::addClasses(array
     'Contao\PersonModel' => 'system/modules/person/models/PersonModel.php',
     'Contao\PersonArchivModel' => 'system/modules/person/models/PersonArchivModel.php'
 ));
-
 
 /**
  * Register the templates

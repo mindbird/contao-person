@@ -33,5 +33,3 @@ class tl_module_person extends Backend
         return $this->getTemplateGroup('person_');
     }
 }
-
-?>

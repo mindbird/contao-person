@@ -30,5 +30,3 @@ class tl_content_person extends Backend
         return $this->getTemplateGroup('ce_person');
     }
 }
-
-?>

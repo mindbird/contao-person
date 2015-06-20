@@ -108,5 +108,3 @@ $GLOBALS ['TL_DCA'] ['tl_person_archive'] = array(
         )
     )
 );
-
-?>

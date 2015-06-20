@@ -238,5 +238,3 @@ class tl_person
 
 
 }
-
-?>
