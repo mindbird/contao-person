@@ -16,7 +16,7 @@
  */
 ClassLoader::addNamespaces(array
 (
-	'Person',
+    'Person',
 ));
 
 
@@ -25,9 +25,9 @@ ClassLoader::addNamespaces(array
  */
 ClassLoader::addClasses(array
 (
-	// Models
-	'Contao\PersonModel'       => 'system/modules/Personen/models/PersonModel.php',
-	'Contao\PersonArchivModel' => 'system/modules/Personen/models/PersonArchivModel.php'
+    // Models
+    'Contao\PersonModel' => 'system/modules/person/models/PersonModel.php',
+    'Contao\PersonArchivModel' => 'system/modules/person/models/PersonArchivModel.php'
 ));
 
 
@@ -36,7 +36,7 @@ ClassLoader::addClasses(array
  */
 TemplateLoader::addFiles(array
 (
-	'ce_person' => 'system/modules/Personen/templates',
-	'mod_personlist' => 'system/modules/Personen/templates',
-	'person_list'    => 'system/modules/Personen/templates',
+    'ce_person' => 'system/modules/person/templates',
+    'mod_personlist' => 'system/modules/person/templates',
+    'person_list' => 'system/modules/person/templates',
 ));

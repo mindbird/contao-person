@@ -1,13 +1,13 @@
 <?php
 /**
  * Contao Open Source CMS
- * 
+ *
  * Copyright (C) 2005-2013 Leo Feyer
- * 
- * @package   Person 
- * @author    mindbird 
- * @license   GNU/LGPL 
- * @copyright mindbird 2013 
+ *
+ * @package   Person
+ * @author    mindbird
+ * @license   GNU/LGPL
+ * @copyright mindbird 2013
  */
 
 
@@ -38,9 +38,9 @@ $GLOBALS['TL_LANG']['tl_person']['image_legend'] = 'Foto';
 /**
  * Buttons
  */
-$GLOBALS['TL_LANG']['tl_person']['new']    = array('Neue Person', 'Neue Person anlegen');
-$GLOBALS['TL_LANG']['tl_person']['show']   = array(' details', 'Show the details of  ID %s');
-$GLOBALS['TL_LANG']['tl_person']['edit']   = array('Edit ', 'Edit  ID %s');
-$GLOBALS['TL_LANG']['tl_person']['cut']    = array('Move ', 'Move  ID %s');
-$GLOBALS['TL_LANG']['tl_person']['copy']   = array('Duplicate ', 'Duplicate  ID %s');
+$GLOBALS['TL_LANG']['tl_person']['new'] = array('Neue Person', 'Neue Person anlegen');
+$GLOBALS['TL_LANG']['tl_person']['show'] = array(' details', 'Show the details of  ID %s');
+$GLOBALS['TL_LANG']['tl_person']['edit'] = array('Edit ', 'Edit  ID %s');
+$GLOBALS['TL_LANG']['tl_person']['cut'] = array('Move ', 'Move  ID %s');
+$GLOBALS['TL_LANG']['tl_person']['copy'] = array('Duplicate ', 'Duplicate  ID %s');
 $GLOBALS['TL_LANG']['tl_person']['delete'] = array('Delete ', 'Delete  ID %s');

@@ -1,32 +1,33 @@
 <div class="<?php echo $this->class; ?> block"<?php echo $this->cssID; ?><?php if ($this->style): ?> style="<?php echo $this->style; ?>"<?php endif; ?>>
-	<div class="person" itemscope itemtype="http://schema.org/Person">
-		<p class="name" itemprop="name"><?php print $this->firstname; ?> <?php print $this->lastname; ?></p>
-		<?php if ($this->function) { ?>
-			<p class="function" itemprop="jobTitle"><?php print $this->function; ?></p>
-		<?php } ?>
-		<?php if ($this->image) { ?>
-			<figure itemprop="image">
-				<img src="<?php print $this->image; ?>" <?php print $this->imageSize; ?> alt="<?php print $this->firstname; ?> <?php print $this->lastname; ?>" />
-			</figure>
-		<?php } ?>
-		<?php if (($this->street && $this->street_number) || ($this->postal_code != '' && $this->city != '')) { ?>
-			<div class="address" itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
-				<?php if ($this->street && $this->street_number) { ?>
-					<p class="street" itemprop="streetAddress"><?php print $this->street; ?> <?php print $this->street_number; ?></p>
-				<?php } ?>
-				<?php if ($this->postal_code != '' && $this->city != '') { ?>
-					<p class="city">
-						<span itemprop="postalCode"><?php print $this->postal_code; ?></span>
-						<span itemprop="addressLocality"><?php print $this->city; ?></span>
-					</p>
-				<?php } ?>
-			</div>
-		<?php } ?>
-		<?php if ($this->phone) { ?>
-			<p class="phone" itemprop="telephone"><?php print $this->phone; ?></p>
-		<?php } ?>
-		<?php if ($this->email) { ?>
-			<p class="email" itemprop="email"><?php print $this->email; ?></p>
-		<?php } ?>
-	</div>
+<div class="person" itemscope itemtype="http://schema.org/Person">
+<p class="name" itemprop="name"><?php print $this->firstname; ?> <?php print $this->lastname; ?></p>
+<?php if ($this->function) { ?>
+<p class="function" itemprop="jobTitle"><?php print $this->function; ?></p>
+<?php } ?>
+<?php if ($this->image) { ?>
+<figure itemprop="image">
+    <img src="<?php print $this->image; ?>" <?php print $this->imageSize; ?>
+    alt="<?php print $this->firstname; ?> <?php print $this->lastname; ?>" />
+</figure>
+<?php } ?>
+<?php if (($this->street && $this->street_number) || ($this->postal_code != '' && $this->city != '')) { ?>
+<div class="address" itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+    <?php if ($this->street && $this->street_number) { ?>
+    <p class="street" itemprop="streetAddress"><?php print $this->street; ?> <?php print $this->street_number; ?></p>
+    <?php } ?>
+    <?php if ($this->postal_code != '' && $this->city != '') { ?>
+    <p class="city">
+        <span itemprop="postalCode"><?php print $this->postal_code; ?></span>
+        <span itemprop="addressLocality"><?php print $this->city; ?></span>
+    </p>
+    <?php } ?>
 </div>
+<?php } ?>
+<?php if ($this->phone) { ?>
+<p class="phone" itemprop="telephone"><?php print $this->phone; ?></p>
+<?php } ?>
+<?php if ($this->email) { ?>
+<p class="email" itemprop="email"><?php print $this->email; ?></p>
+<?php } ?>
+</div>
+        </div>
