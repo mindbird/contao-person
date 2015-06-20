@@ -26,14 +26,8 @@ ClassLoader::addNamespaces(array
 ClassLoader::addClasses(array
 (
 	// Models
-	'Person\PersonModel'       => 'system/modules/Personen/models/PersonModel.php',
-	'Person\PersonArchivModel' => 'system/modules/Personen/models/PersonArchivModel.php',
-
-	// Modules
-	'Person\ModulePersonList'        => 'system/modules/Personen/modules/ModulePersonList.php',
-	
-	// Elements
-	'Person\PersonContentElement' => 'system/modules/Personen/elements/PersonContentElement.php',
+	'Contao\PersonModel'       => 'system/modules/Personen/models/PersonModel.php',
+	'Contao\PersonArchivModel' => 'system/modules/Personen/models/PersonArchivModel.php'
 ));
 
 
