@@ -12,7 +12,7 @@
     }
   ],
   "require": {
-    "contao/core": ">=3.2 || ~4"
+    "contao/core-bundle": ">=3.2 || ~4"
   },
   "extra": {
     "contao": {
