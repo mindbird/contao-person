@@ -1,6 +1,6 @@
 <?php
 
-$GLOBALS ['TL_DCA'] ['tl_module'] ['palettes'] ['person_list'] = '{title_legend},name,headline,type;{archiv_legend},person_archiv,imgSize;{template_legend},personTpl;{protected_legend:hide},protected;
+$GLOBALS ['TL_DCA'] ['tl_module'] ['palettes'] ['person_list'] = '{title_legend},name,headline,type;{archiv_legend},person_archiv,imgSize;{template_legend},personTpl,customTpl;{protected_legend:hide},protected;
 {expert_legend:hide},guests,cssID,space';
 
 $GLOBALS ['TL_DCA'] ['tl_module'] ['fields'] ['person_archiv'] = array(

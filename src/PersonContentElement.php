@@ -47,6 +47,10 @@ class PersonContentElement extends \ContentElement
             return $objTemplate->parse();
         }
 
+        if ($this->customTpl) {
+            $this->strTemplate = $this->customTpl;
+        }
+
         if ($this->personTpl) {
             $this->strTemplate = $this->personTpl;
         }

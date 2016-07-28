@@ -41,7 +41,10 @@ class ModulePersonList extends \Module
             return $objTemplate->parse();
         }
 
-        if ($this->personTpl) {
+        if ($this->customTpl !== '') {
+            $this->strTemplate = $this->customTpl;
+        }
+        if ($this->personTpl !== '') {
             $this->strTemplatePerson = $this->personTpl;
         }
 
