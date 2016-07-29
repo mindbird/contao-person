@@ -4,9 +4,9 @@
         <?php if ($this->function) { ?>
             <p class="function" itemprop="jobTitle"><?php print $this->function; ?></p>
         <?php } ?>
-        <?php if ($this->image) { ?>
+        <?php if ($this->picture) { ?>
             <figure itemprop="image">
-                <img src="<?php print $this->image; ?>" <?php print $this->imageSize; ?> alt="<?php print $this->firstname;?> <?php print $this->lastname; ?>" />
+                <?= $this->insert('picture_default', $this->picture) ?>
             </figure>
         <?php } ?>
         <?php if (($this->street && $this->street_number) || ($this->postal_code != '' && $this->city != '')) { ?>
