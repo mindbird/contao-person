@@ -10,7 +10,7 @@ $GLOBALS ['TL_DCA'] ['tl_content'] ['fields'] ['personID'] = array(
     'eval' => array(
         'mandatory' => true,
     ),
-    'sql' => "int(10) unsigned NOT NULL default '0'"
+    'sql' => "varchar(10) NOT NULL default ''"
 );
 
 $GLOBALS ['TL_DCA'] ['tl_content'] ['fields']['personTpl'] = array
