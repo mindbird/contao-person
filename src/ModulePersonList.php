@@ -62,10 +62,11 @@ class ModulePersonList extends \Module
             $strHTML = '';
             while ($objPeople->next()) {
                 $objTemplate = new \FrontendTemplate ($this->personTpl);
-                $arrData = $this->getArrayOfPerson($objPeople, $arrSize [0], $arrSize [1], $arrSize [2]);
+                $arrData = $this->getArrayOfPerson($objPeople, $arrSize);
                 foreach ($arrData as $strName => $strValue) {
                     $objTemplate->$strName = $strValue;
                 }
+                \Controller::addImageToTemplate($objTemplate, $arrData);
                 $strHTML .= $objTemplate->parse();
             }
         }
@@ -77,19 +78,16 @@ class ModulePersonList extends \Module
      * Return array of person
      *
      * @param object $objPerson
-     * @param number $intWidth
-     * @param number $intHeigth
-     * @param string $strPosition
+     * @param array $arrSize
      * @return array
      */
-    protected function getArrayOfPerson($objPerson, $intWidth = 0, $intHeight = 0, $strPosition = 'proportional')
+    protected function getArrayOfPerson($objPerson, $arrSize)
     {
         $arrData = $objPerson->row();
         $objFile = \FilesModel::findByPk($objPerson->image);
-        $arrData ['image'] = \Image::get($objFile->path, $intWidth, $intHeight, $strPosition);
-
-        $arrData ['imageSize'] = 'width="' . $intWidth . '" height="' . $intHeight . '"';
-
+        $arrData ['singleSRC'] = $objFile->path;
+        $arrData ['size'] = $arrSize;
+        $arrData ['alt'] = $objPerson->firstname . ' ' . $objPerson->lastname;
         return $arrData;
     }
 }

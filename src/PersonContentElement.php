@@ -65,10 +65,11 @@ class PersonContentElement extends \ContentElement
             $arrSize = deserialize($this->size);
 
             if ($objPerson) {
-                $arrData = $this->getArrayOfPerson($objPerson, $arrSize [0], $arrSize [1], $arrSize [2]);
+                $arrData = $this->getArrayOfPerson($objPerson, $arrSize);
                 foreach ($arrData as $strName => $strValue) {
                     $this->Template->$strName = $strValue;
                 }
+                \Controller::addImageToTemplate($this->Template, $arrData);
             }
         }
     }
@@ -77,21 +78,16 @@ class PersonContentElement extends \ContentElement
      * Return array of person
      *
      * @param object $objPerson
-     * @param number $intWidth
-     * @param number $intHeigth
-     * @param string $strPosition
+     * @param array $arrSize
      * @return array
      */
-    protected function getArrayOfPerson($objPerson, $intWidth = 0, $intHeight = 0, $strPosition = 'proportional')
+    protected function getArrayOfPerson($objPerson, $arrSize)
     {
         $arrData = $objPerson->row();
         $objFile = \FilesModel::findByPk($objPerson->image);
-        $arrData ['image'] = \Image::get($objFile->path, $intWidth, $intHeight, $strPosition);
-
-        $arrData ['imageSize'] = 'width="' . $intWidth . '" height="' . $intHeight . '"';
-
+        $arrData ['singleSRC'] = $objFile->path;
+        $arrData ['size'] = $arrSize;
+        $arrData ['alt'] = $objPerson->firstname . ' ' . $objPerson->lastname;
         return $arrData;
     }
 }
-
-?>
