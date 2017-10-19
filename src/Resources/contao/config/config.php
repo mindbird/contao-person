@@ -21,3 +21,9 @@ $GLOBALS ['FE_MOD'] ['people'] = [
  * CONTENT ELEMENTS
  */
 $GLOBALS['TL_CTE']['includes']['person'] = '\Mindbird\Contao\Person\Content\Person';
+
+/**
+ * MODELS
+ */
+$GLOBALS['TL_MODELS']['tl_person'] = '\Mindbird\Contao\Person\Model\Person';
+$GLOBALS['TL_MODELS']['tl_person_archive'] = '\Mindbird\Contao\Person\Model\PersonArchive';
