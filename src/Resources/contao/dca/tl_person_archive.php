@@ -1,17 +1,6 @@
 <?php
 
 /**
- * Contao Open Source CMS
- *
- * Copyright (C) 2005-2013 Leo Feyer
- *
- * @package   Person
- * @author    mindbird
- * @license   GNU/LGPL
- * @copyright mindbird 2013
- */
-
-/**
  * Table person_archiv
  */
 $GLOBALS ['TL_DCA'] ['tl_person_archive'] = array(

@@ -1,16 +1,6 @@
 <?php
 
 /**
- * Register the classes
- */
-ClassLoader::addClasses(array
-(
-    // Models
-    'Contao\PersonModel' => 'system/modules/person/models/PersonModel.php',
-    'Contao\PersonArchivModel' => 'system/modules/person/models/PersonArchivModel.php'
-));
-
-/**
  * Register the templates
  */
 TemplateLoader::addFiles(array
