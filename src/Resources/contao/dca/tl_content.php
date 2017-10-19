@@ -20,7 +20,11 @@ $GLOBALS ['TL_DCA'] ['tl_content'] ['fields']['personTpl'] = array
     'exclude' => true,
     'inputType' => 'select',
     'options_callback' => array('tl_content_person', 'getPersonTemplates'),
-    'eval' => array('includeBlankOption' => true, 'chosen' => true, 'tl_class' => 'w50'),
+    'eval' => array(
+        'includeBlankOption' => true,
+        'chosen' => true,
+        'tl_class' => 'w50'
+    ),
     'sql' => "varchar(64) NOT NULL default ''"
 );
 

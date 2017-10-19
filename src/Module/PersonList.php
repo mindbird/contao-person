@@ -3,12 +3,16 @@
 namespace Mindbird\Contao\Person\Module;
 
 use Contao\BackendTemplate;
-use Contao\Module;
 use Contao\Controller;
 use Contao\FilesModel;
 use Contao\FrontendTemplate;
+use Contao\Module;
 use Mindbird\Contao\Person\Model\Person;
 
+/**
+ * Class PersonList
+ * @package Mindbird\Contao\Person\Module
+ */
 class PersonList extends Module
 {
 
@@ -40,6 +44,7 @@ class PersonList extends Module
             $template->id = $this->id;
             $template->link = $this->name;
             $template->href = 'contao/main.php?do=themes&amp;table=tl_module&amp;act=edit&amp;id=' . $this->id;
+
             return $template->parse();
         }
 
@@ -55,18 +60,21 @@ class PersonList extends Module
      */
     protected function compile()
     {
-        $person = Person::findBy('pid', $this->person_archiv, array('order' => 'sorting ASC'));
+        $person = Person::findBy(
+            'pid',
+            $this->person_archiv, array('order' => 'sorting ASC')
+        );
         $size = deserialize($this->imgSize);
+        $html = '';
         if ($person) {
-            $html = '';
             while ($person->next()) {
-                $objTemplate = new FrontendTemplate ($this->personTpl);
+                $template = new FrontendTemplate($this->personTpl);
                 $data = $this->getArrayOfPerson($person, $size);
-                foreach ($data as $strName => $strValue) {
-                    $objTemplate->$strName = $strValue;
+                foreach ($data as $name => $value) {
+                    $template->$name = $value;
                 }
-                Controller::addImageToTemplate($objTemplate, $data);
-                $html .= $objTemplate->parse();
+                Controller::addImageToTemplate($template, $data);
+                $html .= $template->parse();
             }
         }
 
@@ -83,10 +91,11 @@ class PersonList extends Module
     protected function getArrayOfPerson($person, $size)
     {
         $arrData = $person->row();
-        $objFile = FilesModel::findByPk($person->image);
-        $arrData ['singleSRC'] = $objFile->path;
+        $file = FilesModel::findByPk($person->image);
+        $arrData ['singleSRC'] = $file->path;
         $arrData ['size'] = $size;
         $arrData ['alt'] = $person->firstname . ' ' . $person->lastname;
+
         return $arrData;
     }
 }
