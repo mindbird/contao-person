@@ -58,7 +58,9 @@ class Person extends ContentElement
                 foreach ($arrData as $strName => $strValue) {
                     $this->Template->$strName = $strValue;
                 }
-                Controller::addImageToTemplate($this->Template, $arrData);
+                if ($person->image) {
+                    Controller::addImageToTemplate($this->Template, $arrData);
+                }
             }
         }
     }

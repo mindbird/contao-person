@@ -29,7 +29,7 @@ $GLOBALS ['TL_DCA'] ['tl_person'] = array(
                 'title'
             ),
             'child_record_callback' => array(
-                'tl_person',
+                '\Mindbird\Contao\Person\Table\Person',
                 'listPerson'
             )
         ),
@@ -210,20 +210,4 @@ $GLOBALS ['TL_DCA'] ['tl_person'] = array(
     )
 );
 
-class tl_person
-{
-    public function listPerson($row)
-    {
-        if ($row['image'] != null) {
-            $objFile = \FilesModel::findByPk(deserialize($row['image']));
-            $singleSRC = $objFile->path;
-            $sReturn = '<figure style="float: left; margin-right: 1em;"><img src="' . Image::get($singleSRC, 80, 80,
-                    'center_top') . '"></figure>';
-        }
-        $sReturn .= '<div>' . $row ['lastname'] . ', ' . $row ['firstname'] . '</div>';
 
-        return $sReturn;
-    }
-
-
-}

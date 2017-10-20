@@ -7,9 +7,10 @@ $GLOBALS ['TL_DCA'] ['tl_content'] ['fields'] ['personID'] = array(
     'default' => '',
     'exclude' => true,
     'inputType' => 'select',
-    'foreignKey' => 'tl_person.CONCAT(firstname, " ", lastname)',
+    'options_callback' => array('\Mindbird\Contao\Person\Table\Content', 'getPersonList'),
     'eval' => array(
         'mandatory' => true,
+        'chosen' => true
     ),
     'sql' => "varchar(10) NOT NULL default ''"
 );
@@ -19,7 +20,7 @@ $GLOBALS ['TL_DCA'] ['tl_content'] ['fields']['personTpl'] = array
     'label' => &$GLOBALS['TL_LANG']['tl_content']['personTpl'],
     'exclude' => true,
     'inputType' => 'select',
-    'options_callback' => array('tl_content_person', 'getPersonTemplates'),
+    'options_callback' => array('\Mindbird\Contao\Person\Table\Content', 'getPersonTemplates'),
     'eval' => array(
         'includeBlankOption' => true,
         'chosen' => true,
@@ -27,11 +28,3 @@ $GLOBALS ['TL_DCA'] ['tl_content'] ['fields']['personTpl'] = array
     ),
     'sql' => "varchar(64) NOT NULL default ''"
 );
-
-class tl_content_person extends Backend
-{
-    public function getPersonTemplates()
-    {
-        return $this->getTemplateGroup('ce_person');
-    }
-}
