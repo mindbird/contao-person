@@ -37,7 +37,7 @@ class PersonList extends Module
      */
     public function generate()
     {
-        if (TL_MODE == 'BE') {
+        if (TL_MODE === 'BE') {
             $template = new BackendTemplate ('be_wildcard');
             $template->wildcard = '### PERSONEN LISTE ###';
             $template->title = $this->headline;
@@ -73,7 +73,9 @@ class PersonList extends Module
                 foreach ($data as $name => $value) {
                     $template->$name = $value;
                 }
-                Controller::addImageToTemplate($template, $data);
+                if ($data['singleSrc'] !== null) {
+                    Controller::addImageToTemplate($template, $data);
+                }
                 $html .= $template->parse();
             }
         }
