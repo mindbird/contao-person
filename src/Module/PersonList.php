@@ -73,7 +73,7 @@ class PersonList extends Module
                 foreach ($data as $name => $value) {
                     $template->$name = $value;
                 }
-                if ($data['singleSrc'] !== null) {
+                if ($data['singleSRC'] !== null) {
                     Controller::addImageToTemplate($template, $data);
                 }
                 $html .= $template->parse();
