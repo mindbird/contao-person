@@ -68,7 +68,7 @@ class PersonList extends Module
         $html = '';
         if ($person) {
             while ($person->next()) {
-                $template = new FrontendTemplate($this->personTpl);
+                $template = new FrontendTemplate($this->strTemplatePerson);
                 $data = $this->getArrayOfPerson($person, $size);
                 foreach ($data as $name => $value) {
                     $template->$name = $value;
