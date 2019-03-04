@@ -74,7 +74,7 @@ $GLOBALS ['TL_DCA'] ['tl_person'] = array(
     ),
     // Palettes
     'palettes' => array(
-        'default' => '{name_legend},firstname, lastname, function; {address_legend}, street, street_number, postal_code, city; {contact_legend}, phone, email; {image_legend}, image;'
+        'default' => '{name_legend},firstname, lastname, function; {address_legend}, street, street_number, postal_code, city; {contact_legend}, phone, email; {image_legend}, image;{description_legend}, description;'
     ),
     // Fields
     'fields' => array(
@@ -206,6 +206,18 @@ $GLOBALS ['TL_DCA'] ['tl_person'] = array(
                 'extensions' => 'jpg, jpeg, png, gif'
             ),
             'sql' => "binary(16) NULL"
+        ),
+        'description' => array(
+            'label' => &$GLOBALS['TL_LANG']['tl_person']['description'],
+            'exclude' => true,
+            'search' => true,
+            'inputType' => 'textarea',
+            'eval' => array(
+                'rte' => 'tinyMCE',
+                'helpwizard' => true
+            ),
+            'explanation' => 'insertTags',
+            'sql' => "mediumtext NULL"
         )
     )
 );

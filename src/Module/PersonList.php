@@ -7,6 +7,7 @@ use Contao\Controller;
 use Contao\FilesModel;
 use Contao\FrontendTemplate;
 use Contao\Module;
+use Contao\StringUtil;
 use Mindbird\Contao\Person\Model\Person;
 
 /**
@@ -97,6 +98,7 @@ class PersonList extends Module
         $arrData ['singleSRC'] = $file->path;
         $arrData ['size'] = $size;
         $arrData ['alt'] = $person->firstname . ' ' . $person->lastname;
+        $arrData ['description'] = StringUtil::toHtml5($person->description);
 
         return $arrData;
     }
