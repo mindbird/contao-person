@@ -49,6 +49,10 @@ class PersonList extends Module
             return $template->parse();
         }
 
+        if ($this->customTpl) {
+            $this->strTemplate = $this->customTpl;
+        }
+
         if ($this->personTpl) {
             $this->strTemplatePerson = $this->personTpl;
         }
