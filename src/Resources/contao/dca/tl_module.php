@@ -1,5 +1,9 @@
 <?php
 
+$GLOBALS ['TL_DCA'] ['tl_module'] ['onload_callback'][]  = array(
+    'tl_module_person', 'onLoadCallback'
+);
+
 $GLOBALS ['TL_DCA'] ['tl_module'] ['palettes'] ['person_list'] = '{title_legend},name,headline,type;{archiv_legend},person_archiv,imgSize;{template_legend},customTpl,personTpl;{protected_legend:hide},protected;
 {expert_legend:hide},guests,cssID,space';
 
@@ -26,11 +30,6 @@ $GLOBALS ['TL_DCA'] ['tl_module'] ['fields']['personTpl'] = array
     'sql' => "varchar(64) NOT NULL default ''"
 );
 
-$GLOBALS ['TL_DCA'] ['tl_module'] ['fields']['customTpl']['options_callback'] = array
-(
-    'tl_module_person', 'getModuleTemplates'
-);
-
 class tl_module_person extends Backend
 {
     public function getPersonTemplates()
@@ -41,5 +40,17 @@ class tl_module_person extends Backend
     public function getModuleTemplates()
     {
         return $this->getTemplateGroup('mod_personlist');
+    }
+
+    public function onLoadCallback(\Contao\DataContainer $dc)
+    {
+        if ($dc->type !== 'person_list') {
+            return;
+        }
+
+        $GLOBALS ['TL_DCA'] ['tl_module'] ['fields']['customTpl']['options_callback'] = array
+        (
+            'tl_module_person', 'getModuleTemplates'
+        );
     }
 }
