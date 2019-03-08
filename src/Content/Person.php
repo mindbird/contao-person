@@ -6,6 +6,7 @@ use Contao\BackendTemplate;
 use Contao\ContentElement;
 use Contao\Controller;
 use Contao\FilesModel;
+use Contao\StringUtil;
 
 /**
  * Class Person
@@ -79,6 +80,7 @@ class Person extends ContentElement
         $data ['singleSRC'] = $objFile->path;
         $data ['size'] = $arrSize;
         $data ['alt'] = $person->firstname . ' ' . $person->lastname;
+        $data ['description'] = StringUtil::toHtml5($person->description);
         return $data;
     }
 }

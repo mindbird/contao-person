@@ -24,6 +24,7 @@ $GLOBALS['TL_LANG']['tl_person']['city'] = array('Ort', 'Bitte tragen Sie den Or
 $GLOBALS['TL_LANG']['tl_person']['phone'] = array('Telefon', 'Bitte tragen Sie die Telefonnummer ein.');
 $GLOBALS['TL_LANG']['tl_person']['email'] = array('E-Mail', 'Bitte tragen Sie die E-Mailadresse ein.');
 $GLOBALS['TL_LANG']['tl_person']['image'] = array('Foto', 'Bitte wählen Sie ein Foto aus.');
+$GLOBALS['TL_LANG']['tl_person']['description'] = array('Beschreibung', 'Bitte geben Sie eine Beschreibung ein.');
 
 
 /**
@@ -33,6 +34,7 @@ $GLOBALS['TL_LANG']['tl_person']['name_legend'] = 'Name';
 $GLOBALS['TL_LANG']['tl_person']['address_legend'] = 'Adresse';
 $GLOBALS['TL_LANG']['tl_person']['contact_legend'] = 'Kontakt';
 $GLOBALS['TL_LANG']['tl_person']['image_legend'] = 'Foto';
+$GLOBALS['TL_LANG']['tl_person']['description_legend'] = 'Beschreibung';
 
 
 /**

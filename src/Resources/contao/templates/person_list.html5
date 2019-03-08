@@ -28,4 +28,7 @@
     <?php if ($this->email) { ?>
     <p class="email" itemprop="email"><?php print $this->email; ?></p>
     <?php } ?>
+    <?php if ($this->description) { ?>
+    <div class="description" itemprop="description"><?php print $this->description; ?></div>
+    <?php } ?>
 </div>
