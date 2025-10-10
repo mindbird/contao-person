@@ -11,7 +11,8 @@ class Person extends \Contao\Model
      */
     protected static $strTable = 'tl_person';
 
-    public function getFullName($inverted = false) {
+    public function getFullName($inverted = false): string
+    {
         if ($inverted) {
             return $this->lastname . ', ' . $this->firstname;
         }

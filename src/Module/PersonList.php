@@ -69,7 +69,7 @@ class PersonList extends Module
             'pid',
             $this->person_archiv, array('order' => 'sorting ASC')
         );
-        $size = deserialize($this->imgSize);
+        $size = StringUtil::deserialize($this->imgSize);
         $html = '';
         if ($person) {
             while ($person->next()) {

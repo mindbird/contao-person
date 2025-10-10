@@ -6,26 +6,14 @@ use Contao\Backend;
 use Mindbird\Contao\Person\Model\Person;
 use Mindbird\Contao\Person\Model\PersonArchive;
 
-/**
- * Class Content
- * @package Mindbird\Contao\Person\Table
- */
 class Content extends Backend
 {
-    /**
-     * Return all template files of a particular group as array
-     * @return array
-     */
-    public function getPersonTemplates()
+    public function getPersonTemplates(): array
     {
         return $this->getTemplateGroup('ce_person');
     }
 
-    /**
-     * Returns a list of all person ordered by archive
-     * @return array
-     */
-    public function getPersonList()
+    public function getPersonList(): array
     {
         $people = Person::findAll();
         $archives = PersonArchive::findAll();

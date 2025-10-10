@@ -14,7 +14,7 @@
     }
   ],
   "require": {
-    "contao/core-bundle": "~4.0"
+    "contao/core-bundle": "~5.3"
   },
   "require-dev": {
     "contao/manager-plugin": "^2.0"
@@ -23,11 +23,18 @@
     "contao/manager-plugin": "<2.0 || >=3.0"
   },
   "extra": {
-    "contao-manager-plugin": "Mindbird\\Contao\\Person\\ContaoManagerPlugin"
+    "contao-manager-plugin": "Mindbird\\Contao\\Person\\ContaoManager\\Plugin"
   },
   "autoload": {
     "psr-4": {
       "Mindbird\\Contao\\Person\\": "src/"
+    }
+  },
+  "config": {
+    "allow-plugins": {
+      "contao-components/installer": true,
+      "php-http/discovery": true,
+      "contao/manager-plugin": true
     }
   }
 }

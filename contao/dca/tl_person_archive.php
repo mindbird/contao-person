@@ -1,99 +1,92 @@
 <?php
 
-/**
- * Table person_archiv
- */
-$GLOBALS ['TL_DCA'] ['tl_person_archive'] = array(
+$GLOBALS['TL_DCA']['tl_person_archive'] = [
 
     // Config
-    'config' => array(
+    'config' => [
         'dataContainer' => 'Table',
-        //'ctable' => array (
-        //	'tl_person_entry'
-        //),
         'enableVersioning' => true,
         'switchToEdit' => true,
-        'sql' => array(
-            'keys' => array(
+        'sql' => [
+            'keys' => [
                 'id' => 'primary'
-            )
-        )
-    ),
+            ]
+        ]
+    ],
     // List
-    'list' => array(
-        'sorting' => array(
+    'list' => [
+        'sorting' => [
             'mode' => 1,
-            'fields' => array(
+            'fields' => [
                 'title'
-            ),
+            ],
             'flag' => 1,
             'panelLayout' => 'filter;search,limit'
-        ),
-        'label' => array(
-            'fields' => array(
+        ],
+        'label' => [
+            'fields' => [
                 'title'
-            ),
+            ],
             'format' => '%s'
-        ),
-        'global_operations' => array(
-            'all' => array(
+        ],
+        'global_operations' => [
+            'all' => [
                 'label' => &$GLOBALS ['TL_LANG'] ['MSC'] ['all'],
                 'href' => 'act=select',
                 'class' => 'header_edit_all',
                 'attributes' => 'onclick="Backend.getScrollOffset()" accesskey="e"'
-            )
-        ),
-        'operations' => array(
-            'edit' => array(
+            ]
+        ],
+        'operations' => [
+            'edit' => [
                 'label' => &$GLOBALS ['TL_LANG'] ['tl_person_archive'] ['edit'],
                 'href' => 'table=tl_person',
                 'icon' => 'edit.gif'
-            ),
-            'editheader' => array(
+            ],
+            'editheader' => [
                 'label' => &$GLOBALS ['TL_LANG'] ['tl_person_archive'] ['editheader'],
                 'href' => 'act=edit',
                 'icon' => 'header.gif'
-            ),
-            'copy' => array(
+            ],
+            'copy' => [
                 'label' => &$GLOBALS ['TL_LANG'] ['tl_person_archive'] ['copy'],
                 'href' => 'act=copy',
                 'icon' => 'copy.gif'
-            ),
-            'delete' => array(
+            ],
+            'delete' => [
                 'label' => &$GLOBALS ['TL_LANG'] ['tl_person_archive'] ['delete'],
                 'href' => 'act=delete',
                 'icon' => 'delete.gif',
                 'attributes' => 'onclick="if(!confirm(\'' . $GLOBALS ['TL_LANG'] ['MSC'] ['deleteConfirm'] . '\'))return false;Backend.getScrollOffset()"'
-            ),
-            'show' => array(
+            ],
+            'show' => [
                 'label' => &$GLOBALS ['TL_LANG'] ['tl_person_archive'] ['show'],
                 'href' => 'act=show',
                 'icon' => 'show.gif'
-            )
-        )
-    ),
+            ]
+        ]
+    ],
     // Palettes
-    'palettes' => array(
+    'palettes' => [
         'default' => '{title_legend},title'
-    ),
+    ],
     // Fields
-    'fields' => array(
-        'id' => array(
+    'fields' => [
+        'id' => [
             'sql' => "int(10) unsigned NOT NULL auto_increment"
-        ),
-        'tstamp' => array(
+        ],
+        'tstamp' => [
             'sql' => "int(10) unsigned NOT NULL default '0'"
-        ),
-        'title' => array(
-            'label' => &$GLOBALS ['TL_LANG'] ['tl_person_archive'] ['title'],
+        ],
+        'title' => [
             'exclude' => true,
             'search' => true,
             'inputType' => 'text',
-            'eval' => array(
+            'eval' => [
                 'mandatory' => true,
                 'maxlength' => 255
-            ),
+            ],
             'sql' => "varchar(255) NOT NULL default ''"
-        )
-    )
-);
+        ]
+    ]
+];

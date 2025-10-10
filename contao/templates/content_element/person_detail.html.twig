@@ -1,0 +1,27 @@
+{% if person == null %}{% set person = { firstname: '', lastname: ''} %}{% endif %}
+
+<div class="person">
+    {% if person and person.image %}
+        <div class="image">
+            contao_figure(person.image, imageSize, metadata: {alt: person.firstname ~ ' ' ~ person.lastname})
+        </div>
+    {% endif %}
+    <p class="name">{{ person.firstname }} {{ person.lastname }}</p>
+    {% if person.function %}
+        <p class="function">{{ person.function }}</p>
+    {% endif %}
+    {% if person.street %}
+        <p class="address">{{ person.street }} {{ person.number }}, {{ person.postal_code }} {{ person.city }}</p>
+    {% endif %}
+    {% if person.phone %}
+        <p class="phone">{{ person.phone }}</p>
+    {% endif %}
+    {% if person.email %}
+        <p class="email">{{ person.email }}</p>
+    {% endif %}
+    {% if person.description %}
+        <div class="description">
+            {{ person.description | raw }}
+        </div>
+    {% endif %}
+</div>
