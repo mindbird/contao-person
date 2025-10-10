@@ -16,7 +16,7 @@ class MoveModulesToContentElementsMigration extends AbstractMigration
 
     public function shouldRun(): bool
     {
-        return $this->connection->executeQuery("SELECT * FROM tl_module WHERE type = 'person_list'")->columnCount() > 0;
+        return $this->connection->executeQuery("SELECT * FROM tl_module WHERE type = 'person_list'")->rowCount() > 0;
     }
 
     public function run(): MigrationResult
@@ -42,7 +42,7 @@ class MoveModulesToContentElementsMigration extends AbstractMigration
                 'cteAlias' => $id,
                 'type' => 'content_element'
             ], [
-                    'module' => $module['id'],
+                'module' => $module['id'],
                 'type' => 'module'
             ]);
 
