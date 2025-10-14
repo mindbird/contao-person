@@ -8,6 +8,7 @@ use Contao\CoreBundle\Controller\ContentElement\AbstractContentElementController
 use Contao\CoreBundle\DependencyInjection\Attribute\AsContentElement;
 use Contao\CoreBundle\Routing\ScopeMatcher;
 use Contao\CoreBundle\Twig\FragmentTemplate;
+use Contao\StringUtil;
 use Mindbird\Contao\Person\Model\Person;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -35,6 +36,8 @@ class PersonContentElement extends AbstractContentElementController
             $template->person = null;
             return $template->getResponse();
         }
+        $template->person = $person;
+        $template->imageSize = StringUtil::deserialize($model->size);
 
         return $template->getResponse();
     }
