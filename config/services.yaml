@@ -6,7 +6,3 @@ services:
 
   Mindbird\Contao\Person\:
     resource: '../src/'
-
-  Mindbird\Contao\Person\Migration\MoveModulesToContentElementsMigration:
-    tags:
-      - { name: contao.migration, priority: 0 }

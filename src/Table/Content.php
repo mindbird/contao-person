@@ -8,10 +8,6 @@ use Mindbird\Contao\Person\Model\PersonArchive;
 
 class Content extends Backend
 {
-    public function getPersonTemplates(): array
-    {
-        return $this->getTemplateGroup('ce_person');
-    }
 
     public function getPersonList(): array
     {
