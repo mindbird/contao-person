@@ -1,10 +1,12 @@
 <?php
 
+use Mindbird\Contao\Person\Table\Person;
+
 $GLOBALS['TL_DCA']['tl_person'] = [
 
     // Config
     'config' => [
-        'dataContainer' => 'Table',
+        'dataContainer' => \Contao\DC_Table::class,
         'ptable' => 'tl_person_archive',
         'switchToEdit' => true,
         'enableVersioning' => true,
@@ -26,7 +28,7 @@ $GLOBALS['TL_DCA']['tl_person'] = [
                 'title'
             ],
             'child_record_callback' => [
-                \Mindbird\Contao\Person\Table\Person::class,
+                Person::class,
                 'listPerson'
             ]
         ],
