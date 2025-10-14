@@ -28,7 +28,7 @@ class PersonListContentElement extends AbstractContentElementController
     {
         if ($this->scopeMatcher->isBackendRequest($request)) {
             $template = new BackendTemplate('be_wildcard');
-            $template->title = 'Personen Liste';
+            $template->title = 'Personen Liste'; //@TODO Archivname ergänzen
 
             return $template->getResponse();
         }
@@ -37,7 +37,7 @@ class PersonListContentElement extends AbstractContentElementController
             'pid',
             $model->person_archiv, array('order' => 'sorting ASC')
         );
-        $template->imageSize = StringUtil::deserialize($model->imgSize);
+        $template->imageSize = StringUtil::deserialize($model->size);
 
         if ($people === null) {
             $template->people = [];

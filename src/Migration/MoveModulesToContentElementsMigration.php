@@ -21,8 +21,19 @@ class MoveModulesToContentElementsMigration extends AbstractMigration
 
     public function run(): MigrationResult
     {
-        $modules = $this->connection->fetchAllAssociative("SELECT * FROM tl_module WHERE type = 'person_list'");
 
+        $schemaManager = $this->connection->createSchemaManager();
+        $contentColumns = $schemaManager->listTableColumns('tl_content');
+        if (!isset($contentColumns['person_archiv'])) {
+            $this->connection->executeQuery("
+            ALTER TABLE
+                tl_content
+            ADD
+                person_Archiv int(10) unsigned NOT NULL default '0'
+        ");
+        }
+
+        $modules = $this->connection->fetchAllAssociative("SELECT * FROM tl_module WHERE type = 'person_list'");
         foreach ($modules as $module) {
             // Create a new content element
             $this->connection->insert('tl_content', [
@@ -30,10 +41,9 @@ class MoveModulesToContentElementsMigration extends AbstractMigration
                 'type' => 'person_list',
                 'ptable' => 'tl_theme',
                 'pid' => $module['pid'],
-                'name' => $module['name'],
                 'headline' => $module['headline'],
                 'person_archiv' => $module['person_archiv'],
-                'imgSize' => $module['imgSize'],
+                'size' => $module['imgSize'],
                 'sorting' => 128, // Default sorting value
             ]);
 
