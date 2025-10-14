@@ -19,6 +19,15 @@ class Person
 
         $template->firstname = $row['firstname'];
         $template->lastname = $row['lastname'];
+        if ($row['function'] != null) {
+            $template->function = $row['function'];
+        }
+        if ($row['email'] != null) {
+            $template->email = $row['email'];
+        }
+        if ($row['phone'] != null) {
+            $template->phone = $row['phone'];
+        }
 
         return $template->parse();
     }

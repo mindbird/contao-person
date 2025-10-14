@@ -5,6 +5,15 @@
         {% endif %}
     </figure>
     <div>
-        {{ lastname }}, {{ firstname }}
+        {{ lastname }}, {{ firstname }}<br>
+        {% if function is defined and function is not empty %}
+            <small>{{ function }}</small>
+        {% endif %}
+        {% if phone is defined and phone is not empty %}
+            <a href="tel:{{ phone }}">{{ phone }}</a>
+        {% endif %}
+        {% if email is defined and email is not empty %}
+            <a href="mailto:{{ email }}">{{ email }}</a>
+        {% endif %}
     </div>
 </div>
