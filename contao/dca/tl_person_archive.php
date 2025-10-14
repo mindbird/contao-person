@@ -11,7 +11,8 @@ $GLOBALS['TL_DCA']['tl_person_archive'] = [
             'keys' => [
                 'id' => 'primary'
             ]
-        ]
+        ],
+        'ctable' => ['tl_person']
     ],
     // List
     'list' => [
@@ -28,6 +29,13 @@ $GLOBALS['TL_DCA']['tl_person_archive'] = [
                 'title'
             ],
             'format' => '%s'
+        ],
+        'operations' => [
+            '!edit',
+            '!children',
+            'copy',
+            'cut',
+            'delete'
         ]
     ],
     // Palettes

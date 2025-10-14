@@ -1,0 +1,10 @@
+<div style="display: grid; grid-auto-columns: 100px 1fr; gap: 1rem;">
+    <figure style="width: 80px; height: 80px; background-color: lightgrey;">
+        {% if image %}
+            {{ contao_figure(image, [80, 80, 'center_top']) }}
+        {% endif %}
+    </figure>
+    <div>
+        {{ lastname }}, {{ firstname }}
+    </div>
+</div>
