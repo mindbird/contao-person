@@ -42,7 +42,6 @@ $GLOBALS['TL_DCA']['tl_person'] = [
         'operations' => [
             '!edit',
             '!copy',
-            '!show',
             'cut',
             'delete'
         ]
