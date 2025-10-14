@@ -4,12 +4,10 @@ namespace Mindbird\Contao\Person\Controller\ContentElement;
 
 use Contao\BackendTemplate;
 use Contao\ContentModel;
-use Contao\Controller;
 use Contao\CoreBundle\Controller\ContentElement\AbstractContentElementController;
 use Contao\CoreBundle\DependencyInjection\Attribute\AsContentElement;
 use Contao\CoreBundle\Routing\ScopeMatcher;
 use Contao\CoreBundle\Twig\FragmentTemplate;
-use Contao\FrontendTemplate;
 use Contao\StringUtil;
 use Mindbird\Contao\Person\Model\Person;
 use Symfony\Component\HttpFoundation\Request;
