@@ -40,6 +40,7 @@ class MoveModulesToContentElementsMigration extends AbstractMigration
                 'tstamp' => time(),
                 'type' => 'person_list',
                 'ptable' => 'tl_theme',
+                'title' => $module['name'],
                 'pid' => $module['pid'],
                 'headline' => $module['headline'],
                 'person_archiv' => $module['person_archiv'],
