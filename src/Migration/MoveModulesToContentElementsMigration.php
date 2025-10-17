@@ -58,7 +58,7 @@ class MoveModulesToContentElementsMigration extends AbstractMigration
             $id = $this->connection->lastInsertId();
             $this->connection->update('tl_content', [
                 'cteAlias' => $id,
-                'type' => 'content_element'
+                'type' => 'alias'
             ], [
                 'module' => $module['id'],
                 'type' => 'module'
