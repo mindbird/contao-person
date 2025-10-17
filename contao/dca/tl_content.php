@@ -1,6 +1,7 @@
 <?php
 
-$GLOBALS['TL_DCA']['tl_content']['palettes']['person'] = '{type_legend},type,headline;{person_legend},personID,size;{template_legend},personTpl;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID,space;{invisible_legend:hide},invisible,start,stop';
+$GLOBALS['TL_DCA']['tl_content']['palettes'][\Mindbird\Contao\Person\Controller\ContentElement\PersonContentElement::TYPE] = '{type_legend},type,headline;{person_legend},personID,size;{invisible_legend:hide},invisible,start,stop';
+$GLOBALS['TL_DCA']['tl_content']['palettes'][\Mindbird\Contao\Person\Controller\ContentElement\PersonListContentElement::TYPE] = '{type_legend},type,headline;{person_legend},person_archive,size;{invisible_legend:hide},invisible,start,stop';
 
 $GLOBALS ['TL_DCA'] ['tl_content'] ['fields'] ['personID'] = [
     'default' => '',
