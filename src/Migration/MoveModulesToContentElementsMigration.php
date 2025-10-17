@@ -16,7 +16,7 @@ class MoveModulesToContentElementsMigration extends AbstractMigration
 
     public function shouldRun(): bool
     {
-        return $this->connection->executeQuery("SELECT * FROM tl_module WHERE type = 'person_list'")->rowCount() > 0;
+        return count($this->connection->executeQuery("SELECT * FROM tl_module WHERE type = 'person_list'")->fetchAllAssociative()) > 0;
     }
 
     public function run(): MigrationResult
