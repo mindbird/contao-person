@@ -21,7 +21,6 @@ class MoveModulesToContentElementsMigration extends AbstractMigration
 
     public function run(): MigrationResult
     {
-
         $schemaManager = $this->connection->createSchemaManager();
         $contentColumns = $schemaManager->listTableColumns('tl_content');
         if (!isset($contentColumns['person_archiv'])) {
@@ -30,6 +29,14 @@ class MoveModulesToContentElementsMigration extends AbstractMigration
                 tl_content
             ADD
                 person_Archiv int(10) unsigned NOT NULL default '0'
+        ");
+        }
+        if (!isset($contentColumns['title'])) {
+            $this->connection->executeQuery("
+            ALTER TABLE
+                tl_content
+            ADD
+                title varchar(255) NOT NULL default ''
         ");
         }
 
