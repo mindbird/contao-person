@@ -1,0 +1,11 @@
+{% extends "@Contao/content_element/_base.html.twig" %}
+
+{% block content %}
+    <div class="list">
+        {% for person in people %}
+            {% block person %}
+                {% include('@Contao/content_element/person.html.twig') %}
+            {% endblock %}
+        {% endfor %}
+    </div>
+{% endblock %}

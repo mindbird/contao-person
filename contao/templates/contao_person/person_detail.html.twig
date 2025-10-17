@@ -1,0 +1,27 @@
+{% if person is not defined  %}{% set person = { firstname: '', lastname: ''} %}{% endif %}
+
+<div class="person">
+    {% if person.image is not empty %}
+        <div class="image">
+            {{ contao_figure(person.image, imageSize, {metadata: {alt: person.firstname ~ ' ' ~ person.lastname}}) }}
+        </div>
+    {% endif %}
+    <p class="name">{{ person.firstname }} {{ person.lastname }}</p>
+    {% if person.function is not empty %}
+        <p class="function">{{ person.function }}</p>
+    {% endif %}
+    {% if person is defined and person.city is not empty %}
+        <p class="address">{{ person.street }} {{ person.street_number }} {{ person.postal_code }} {{ person.city }}</p>
+    {% endif %}
+    {% if person.phone is not empty %}
+        <p class="phone">{{ person.phone }}</p>
+    {% endif %}
+    {% if person.email is not empty %}
+        <p class="email">{{ person.email }}</p>
+    {% endif %}
+    {% if person.description is defined %}
+        <div class="description">
+            {{ person.description | raw }}
+        </div>
+    {% endif %}
+</div>

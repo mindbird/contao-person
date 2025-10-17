@@ -1,0 +1,19 @@
+<div style="display: grid; grid-auto-columns: 100px 1fr; gap: 1rem;grid-auto-flow: column;">
+    <figure style="width: 80px; height: 80px; background-color: lightgrey;">
+        {% if image is defined %}
+            {{ contao_figure(image, [80, 80, 'center_top']) }}
+        {% endif %}
+    </figure>
+    <div>
+        {{ lastname }}, {{ firstname }}
+        {% if function is defined and function is not empty %}
+            - {{ function }}<br>
+        {% endif %}
+        {% if phone is defined and phone is not empty %}
+            Telefon: <a href="tel:{{ phone }}">{{ phone }}</a><br>
+        {% endif %}
+        {% if email is defined and email is not empty %}
+            E-Mail: <a href="mailto:{{ email }}">{{ email }}</a><br>
+        {% endif %}
+    </div>
+</div>

@@ -2,37 +2,34 @@
 
 namespace Mindbird\Contao\Person\Table;
 
+use Contao\BackendTemplate;
 use Contao\FilesModel;
 use Contao\Image;
+use Contao\StringUtil;
 
-/**
- * Class Person
- * @package Mindbird\Contao\Person\Table
- */
 class Person
 {
-    /**
-     * Returns the description of a row
-     * @param array $row DB row of tl_person
-     * @return string
-     */
-    public function listPerson($row)
+    public function listPerson(array $row): string
     {
-        $return = '';
+        $template = new BackendTemplate('backend/person');
         if ($row['image'] != null) {
-            $file = FilesModel::findByPk(deserialize($row['image']));
-            $singleSRC = $file->path;
-            $return = '<figure style="float: left; margin-right: 1em;"><img src="' .
-                Image::get($singleSRC, 80, 80, 'center_top') .
-                '"></figure>';
+            $file = FilesModel::findByPk(StringUtil::deserialize($row['image']));
+            $template->image = $file->path;
         }
-        $return .= '<div>' .
-            $row ['lastname'] .
-            ', ' .
-            $row ['firstname'] .
-            '</div>';
 
-        return $return;
+        $template->firstname = $row['firstname'];
+        $template->lastname = $row['lastname'];
+        if ($row['function'] != null) {
+            $template->function = $row['function'];
+        }
+        if ($row['email'] != null) {
+            $template->email = $row['email'];
+        }
+        if ($row['phone'] != null) {
+            $template->phone = $row['phone'];
+        }
+
+        return $template->parse();
     }
 
 }
