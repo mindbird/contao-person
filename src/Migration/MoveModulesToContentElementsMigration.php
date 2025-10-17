@@ -28,7 +28,7 @@ class MoveModulesToContentElementsMigration extends AbstractMigration
             ALTER TABLE
                 tl_content
             ADD
-                person_Archiv int(10) unsigned NOT NULL default '0'
+                person_archiv int(10) unsigned NOT NULL default '0'
         ");
         }
         if (!isset($contentColumns['title'])) {
