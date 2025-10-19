@@ -10,6 +10,7 @@ use Contao\CoreBundle\Routing\ScopeMatcher;
 use Contao\CoreBundle\Twig\FragmentTemplate;
 use Contao\StringUtil;
 use Mindbird\Contao\Person\Model\Person;
+use Mindbird\Contao\Person\Model\PersonArchive;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -25,8 +26,10 @@ class PersonListContentElement extends AbstractContentElementController
     protected function getResponse(FragmentTemplate $template, ContentModel $model, Request $request): Response
     {
         if ($this->scopeMatcher->isBackendRequest($request)) {
+            $archiv = PersonArchive::findByPk($model->person_archiv);
+
             $template = new BackendTemplate('be_wildcard');
-            $template->title = 'Personen Liste'; //@TODO Archivname ergänzen
+            $template->title = 'Personen Liste - ' . $archiv?->title ?? '';
 
             return $template->getResponse();
         }

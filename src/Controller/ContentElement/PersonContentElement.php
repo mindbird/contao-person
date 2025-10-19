@@ -24,14 +24,14 @@ class PersonContentElement extends AbstractContentElementController
 
     protected function getResponse(FragmentTemplate $template, ContentModel $model, Request $request): Response
     {
+        $person = Person::findByPk($model->personID);
         if ($this->scopeMatcher->isBackendRequest($request)) {
             $template = new BackendTemplate('be_wildcard');
-            $template->title = 'Person '; // Person auslesen und Name ausgeben
+            $template->title = 'Person - ' . $person?->getFullName() ?? ''; // Person auslesen und Name ausgeben
 
             return $template->getResponse();
         }
 
-        $person = Person::findByPk($model->personID);
         if ($person === null) {
             $template->person = null;
             return $template->getResponse();
