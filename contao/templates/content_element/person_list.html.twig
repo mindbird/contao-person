@@ -4,7 +4,7 @@
     <div class="list">
         {% for person in people %}
             {% block person %}
-                {% include('@Contao/content_element/person.html.twig') %}
+                {% include('@Contao/contao_person/person_detail.html.twig') %}
             {% endblock %}
         {% endfor %}
     </div>
